@@ -1,3 +1,17 @@
+camra_nbss
+
+Campaign For Real Ale National Beer Scoring System
+
+Allows a group of branch of CAMRA members maintain their own NBSS site.
+
+Individual member accounts, available via signup service.
+Auto validiation after signup is configurable.
+
+Full reporting on branch pubs for administrative users.
+
+demo site at http://devnbss.camranorthherts.org.uk/
+
+
 Quick setup
 -----------
 
