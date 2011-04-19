@@ -1,2 +1,9 @@
-config.php
-tmp
+.*
+src/*.tgz
+build/api
+build/logs
+build/code-browser
+build/pdepend
+build/coverage
+build/packages
+
