@@ -1,5 +1,6 @@
 .*
 src/*.tgz
+src/package.xml
 build/api
 build/logs
 build/code-browser

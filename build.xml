@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project name="CamraNbss" default="build" basedir=".">
 <property name="project" value="CamraNbss"/>
 <property name="release.version" value="3.0.0"/>
 <property name="release.stability" value="devel"/>
+<property name="release.notes" value=""/>
 <property name="source" value="src"/>
 <property name="sourceCheck" value="src/Camra"/>
 <property name="tests" value="src/tests"/>
-<property name="pearRepo" value="/var/www/b3cft.com/pear"/>
+<property name="pearRepo" value="/var/www/camranorthherts.org.uk/pear"/>
 <tstamp>
     <format property="release.date" pattern="yyyy-MM-dd" locale="Europe/London"/>
 </tstamp>
@@ -132,14 +132,20 @@
   <replace file="${basedir}/src/package.xml" token="@@version@@" value="${release.version}"/>
   <replace file="${basedir}/src/package.xml" token="@@date@@" value="${release.date}"/>
   <replace file="${basedir}/src/package.xml" token="@@stability@@" value="${release.stability}"/>
+  <replace file="${basedir}/src/package.xml" token="@@rel_notes@@" value="${release.notes}"/>
   <exec executable="pear">
     <arg line="package ${basedir}/src/package.xml" />
   </exec>
   <move file="${project}-${release.version}.tgz" tofile="build/packages/${project}-${release.version}.tgz"/>
  </target>
 
+<target name="localdeploy" depends="package">
+    <exec executable="sudo">
+        <arg line="pear install -f ${basedir}/build/packages/${project}-${release.version}.tgz" />
+    </exec>
+</target>
+
  <target name="release" depends="package">
-    
     <exec executable="sudo" failonerror="false">
         <arg line="pirum remove ${pearRepo} ${project}-${release.version}.tgz" />
     </exec>

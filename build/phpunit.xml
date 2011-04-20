@@ -22,7 +22,7 @@
 	    <directory suffix=".php">/usr/share/pear</directory>
 	  </blacklist>
 	  <whitelist addUncoveredFilesFromWhitelist="true">
-	    <directory suffix=".php">../src/b3cft</directory>
+	    <directory suffix=".php">../src/Camra</directory>
 	  </whitelist>
 	</filter>
 	
