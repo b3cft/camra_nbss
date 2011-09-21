@@ -12,7 +12,7 @@ include('../includes/base.php');
 include(DOCROOT.'/skin/header.php');
 
 $sortcol= isset($_REQUEST['sortcol']) ? $_REQUEST['sortcol'] :'avg_score';
-$sortorder = $_REQUEST['sortorder']=='asc' ? SORT_ASC : SORT_DESC;
+$sortorder = (isset($_REQUEST['sortorder']) && $_REQUEST['sortorder']=='asc') ? SORT_ASC : SORT_DESC;
 $show = isset($_REQUEST['show']) ? $_REQUEST['show'] : 10;
 $start = isset($_REQUEST['start']) ? $_REQUEST['start'] : '';
 $stop = isset($_REQUEST['stop']) ? $_REQUEST['stop'] : '';

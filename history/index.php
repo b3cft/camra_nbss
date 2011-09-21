@@ -18,8 +18,6 @@ $reviewer_id = $user['id'];
 $results=lastSubmissions($show,$reviewer_id,$start,$stop);
 ?>
 <form method="post" action="<?php echo $config->get('web', 'root')?>/history/" id="resultform">
-	<input type="hidden" name="sortcol" value="<?php print($sortcol);?>" />
-	<input type="hidden" name="sortorder" value="<?php print($sortorder);?>" />
 	Show: <select name="show">
 		<option value="0"<?php if($show==0){print(' selected="selected"');}?>>All&nbsp;&nbsp;</option>
 		<option value="3"<?php if($show==3){print(' selected="selected"');}?>>3</option>
@@ -52,7 +50,6 @@ $results=lastSubmissions($show,$reviewer_id,$start,$stop);
 	<caption>Submissions</caption>
 	<thead>
 		<tr>
-			<!--<th scope="col">Action</th>-->
 			<th scope="col">Date</th>
 			<th scope="col">Town</th>
 			<th scope="col">Pub</th>
@@ -66,7 +63,6 @@ $results=lastSubmissions($show,$reviewer_id,$start,$stop);
 <?php
 		foreach($results as $result){
 			print(TAB.TAB.'<tr>'.CR);
-			//print(TAB.TAB.TAB.'<td><a href="'.$config->get('web', 'root').'/history/edit/?id='.$result['id'].'" title="Edit entry">E</a>&nbsp;|&nbsp;<a href="'.$config->get('web', 'root').'/history/delete/?id='.$result['id'].'" title="Delete Entry">X</a></td>');
 			print(TAB.TAB.TAB.'<td>'.date('D, d/M/Y',strtotime($result['reviewed'])).'</td>'.CR);
 			print(TAB.TAB.TAB.'<td>'.$result['townname'].'</td>'.CR);
 			print(TAB.TAB.TAB.'<td>'.$result['pubname'].'</td>'.CR);

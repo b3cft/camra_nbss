@@ -11,13 +11,13 @@ $access = array('superreviewer','admin','sysadmin');
 include('../../includes/base.php');
 include(DOCROOT.'/skin/header.php');
 
-$sortcol= isset($_REQUEST['sortcol']) ? $_REQUEST['sortcol'] :'date';
-$sortorder = $_REQUEST['sortorder']=='asc' ? SORT_ASC : SORT_DESC;
-$type = $_REQUEST['type']=='yoy' ? 'yoy' : 'mom';
-$pub_id = isset($_REQUEST['pub_id']) ? $_REQUEST['pub_id'] : 132;
-$prevLL = $_REQUEST['prevLL']=='1' ? 1 : 0;
-$stats = getPubStatsInDepth($pub_id, $type, $sortcol, $sortorder, $prevLL);
-$pub = reset(getQueryResults('SELECT town.name as town_name, pub.name as pub_name FROM '.$config->get('database', 'tablePrefix').'pub pub, '.$config->get('database', 'tablePrefix').'town town WHERE pub.town_id=town.id AND pub.id='.$pub_id));
+$sortcol   = isset($_REQUEST['sortcol']) ? $_REQUEST['sortcol'] :'date';
+$sortorder = (isset($_REQUEST['sortorder']) && $_REQUEST['sortorder']=='asc') ? SORT_ASC : SORT_DESC;
+$type      = (isset($_REQUEST['type']) && $_REQUEST['type']=='yoy') ? 'yoy' : 'mom';
+$pub_id    = isset($_REQUEST['pub_id']) ? $_REQUEST['pub_id'] : 132;
+$prevLL    = (isset($_REQUEST['prevLL']) && $_REQUEST['prevLL']=='1') ? 1 : 0;
+$stats     = getPubStatsInDepth($pub_id, $type, $sortcol, $sortorder, $prevLL);
+$pub       = reset(getQueryResults('SELECT town.name as town_name, pub.name as pub_name FROM '.$config->get('database', 'tablePrefix').'pub pub, '.$config->get('database', 'tablePrefix').'town town WHERE pub.town_id=town.id AND pub.id='.$pub_id));
 ?>
 <form method="post" action="<?php echo $config->get('web', 'root')?>/results/indepth/" id="resultform">
 	<input type="hidden" name="sortcol" value="<?php print($sortcol);?>" />

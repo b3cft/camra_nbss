@@ -128,7 +128,7 @@ class Form {
 	* @desc add options for checkboxes,radio buttons, and select boxes. If an array of objects is passed, use $objkey and $objvalue to define displayed values
 	**/
 	function addOptions($options, $objkey=null, $objvalue=null){
-		if (!is_array($this->field[$this->currfield]['options']))
+		if (true === empty($this->field[$this->currfield]['options']))
 		{
 			$this->field[$this->currfield]['options']=array();
 		}
@@ -688,9 +688,9 @@ class Form {
 		}
 		$input='<input type="'.$field['type'].'" id="frm_'.$this->id.'_'.$id.'" name="'.$field['name'].'"';
 		$input.=' value="'.$field['value'].'"';
-		$input.= is_null($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
+		$input.= empty($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
 		$input.= !isset($field['title']) || is_null($field['title']) ? '' : ' title="'.$field['title'].'"';
-		$input.= is_null($field['inputother']) ? '' : ' '.$field['inputother'];
+		$input.= empty($field['inputother']) ? '' : ' '.$field['inputother'];
 		$input.=' />';
 
 		return $this->_displayElement($label,$input,$field['labelpos'],$field);
@@ -721,9 +721,9 @@ class Form {
 		$input='<input type="'.$field['type'].'" id="frm_'.$this->id.'_'.$id.'" name="'.$field['name'].'"';
 		$input.=' value="'.$value.'"';
 		$input.= $checked ? ' checked="checked"' : '';
-		$input.= is_null($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
-		$input.= is_null($field['title']) ? '' : ' title="'.$field['title'].'"';
-		$input.= is_null($field['inputother']) ? '' : ' '.$field['inputother'];
+		$input.= empty($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
+		$input.= empty($field['title']) ? '' : ' title="'.$field['title'].'"';
+		$input.= empty($field['inputother']) ? '' : ' '.$field['inputother'];
 		$input.=' />';
 
 		return $this->_displayElement($label,$input,$field['labelpos'],$field);
@@ -754,9 +754,9 @@ class Form {
 		$input='<input type="'.$field['type'].'" id="frm_'.$this->id.'_'.$id.'" name="'.$field['name'].'"';
 		$input.=' value="'.$value.'"';
 		$input.= $checked ? ' checked="checked"' : '';
-		$input.= is_null($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
-		$input.= is_null($field['title']) ? '' : ' title="'.$field['title'].'"';
-		$input.= is_null($field['inputother']) ? '' : ' '.$field['inputother'];
+		$input.= empty($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
+		$input.= empty($field['title']) ? '' : ' title="'.$field['title'].'"';
+		$input.= empty($field['inputother']) ? '' : ' '.$field['inputother'];
 		$input.=' />';
 
 		return $this->_displayElement($label,$input,$field['labelpos'],$field);
@@ -777,9 +777,9 @@ class Form {
 		$input='<textarea id="frm_'.$this->id.'_'.$id.'" name="'.$field['name'].'"';
 		$input.= ' cols="'.(isset($field['cols']) ? $field['cols'] : DEFAULT_TEXTAREA_COLS).'"';
 		$input.= ' rows="'.(isset($field['rows']) ? $field['rows'] : DEFAULT_TEXTAREA_ROWS).'"';
-		$input.= is_null($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
-		$input.= is_null($field['title']) ? '' : ' title="'.$field['title'].'"';
-		$input.= is_null($field['inputother']) ? '' : ' '.$field['inputother'];
+		$input.= empty($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
+		$input.= empty($field['title']) ? '' : ' title="'.$field['title'].'"';
+		$input.= empty($field['inputother']) ? '' : ' '.$field['inputother'];
 		$input.='>';
 		$input.=$field['value'];
 		$input.='</textarea>';
@@ -800,9 +800,9 @@ class Form {
 			$id=$field['name'];
 		}
 		$input='<input type="file" id="frm_'.$this->id.'_'.$id.'" name="'.$field['name'].'"';
-		$input.= is_null($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
-		$input.= is_null($field['title']) ? '' : ' title="'.$field['title'].'"';
-		$input.= is_null($field['inputother']) ? '' : ' '.$field['inputother'];
+		$input.= empty($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
+		$input.= empty($field['title']) ? '' : ' title="'.$field['title'].'"';
+		$input.= empty($field['inputother']) ? '' : ' '.$field['inputother'];
 		$input.='>';
 
 		return $this->_displayElement($label,$input,$field['labelpos'],$field);
@@ -815,9 +815,9 @@ class Form {
 	**/
 	function _displayFieldsetOpen($field){
 		$fieldset = '<fieldset';
-		$fieldset.= is_null($field['fieldsetclass']) ? '' : ' class="'.$field['fieldsetclass'].'"';
+		$fieldset.= empty($field['fieldsetclass']) ? '' : ' class="'.$field['fieldsetclass'].'"';
 		$fieldset.='>'.CR.'<legend';
-		$fieldset.= is_null($field['legendclass']) ? '' : ' class="'.$field['legendclass'].'"';
+		$fieldset.= empty($field['legendclass']) ? '' : ' class="'.$field['legendclass'].'"';
 		$fieldset.='>'.$field['legend'].'</legend>'.CR;
 		return $fieldset;
 	}
@@ -847,8 +847,8 @@ class Form {
             }
             $html='<label for="frm_'.$this->id.'_'.$id.'"';
             $html.=' class="'.$field['type'].(is_null($field['labelclass']) ? '"' : ' '.$field['labelclass'].'"');
-            $html.= is_null($field['title']) ? '' : ' title="'.$field['title'].'"';
-            $html.= is_null($field['labelother']) ? '' : ' '.$field['labelother'];
+            $html.= empty($field['title']) ? '' : ' title="'.$field['title'].'"';
+            $html.= empty($field['labelother']) ? '' : ' '.$field['labelother'];
             $html.='>';
 
             $html.=$field['label'];
@@ -887,9 +887,9 @@ class Form {
 		$html='<input type="submit" name="_submit'.$this->id.'_'.$field['name'].'"';
 		$html.=' value="'.$field['value'].'"';
 		$html.=' id="frm_'.$this->id.'_submit"';
-		$html.= is_null($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
-		$html.= is_null($field['title']) ? '' : ' title="'.$field['title'].'"';
-		$html.= is_null($field['inputother']) ? '' : ' '.$field['inputother'];
+		$html.= empty($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
+		$html.= empty($field['title']) ? '' : ' title="'.$field['title'].'"';
+		$html.= empty($field['inputother']) ? '' : ' '.$field['inputother'];
 		$html.=' />';
 
 		return $this->_displayElement('',$html,'left',$field);
@@ -911,9 +911,9 @@ class Form {
 		$input='<select id="frm_'.$this->id.'_'.$id.'" name="'.$field['name'].'"';
 		$input.= isset($field['multiple']) ? ' multiple="multiple"' : '' ;
 		$input.= isset($field['size']) ? ' size="'.$field['size'].'"' : '' ;
-		$input.= is_null($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
-		$input.= is_null($field['title']) ? '' : ' title="'.$field['title'].'"';
-		$input.= is_null($field['inputother']) ? '' : ' '.$field['inputother'];
+		$input.= empty($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
+		$input.= empty($field['title']) ? '' : ' title="'.$field['title'].'"';
+		$input.= empty($field['inputother']) ? '' : ' '.$field['inputother'];
 
 		$input.='>'.CR;
 		$input.=$this->_displayOptions($field);
@@ -939,10 +939,10 @@ class Form {
 
 				case 'optgroupopen':
 					$html.='<optgroup';
-					$html.= !is_null($option['label']) && strlen($option['label']) ? ' label="'.$option['label'].'"' : '';
-					$html.= !is_null($option['title']) && strlen($option['title']) ? ' title="'.$option['title'].'"' : '';
-					$html.= !is_null($option['class']) && strlen($option['class']) ? ' class="'.$option['class'].'"' : '';
-					$html.= !is_null($option['id']) && strlen($option['id']) ? ' id="'.$option['id'].'"' : '';
+					$html.= empty($option['label']) ? '' : ' label="'.$option['label'].'"';
+					$html.= empty($option['title']) ? '' : ' title="'.$option['title'].'"';
+					$html.= empty($option['class']) ? '' : ' class="'.$option['class'].'"';
+					$html.= empty($option['id']) ? '' : ' id="'.$option['id'].'"';
 					$html.='>'.CR;
 					break;
 
@@ -971,7 +971,7 @@ class Form {
 		$label=$this->_displayLabel($field);
 		$input='<select id="frm_'.$this->id.'_'.$id.'day" name="'.$field['name'].'day"';
 		$input.=' class="'.$field['type'].(is_null($field['inputclass']) ? '"' : ' '.$field['inputclass'].'"');
-		$input.= is_null($field['title']) ? '' : ' title="'.$field['title'].' '.LANG_DAY.'"';
+		$input.= empty($field['title']) ? '' : ' title="'.$field['title'].' '.LANG_DAY.'"';
 		$input.='>'.CR;
 		$input.='<option value="">'.LANG_DAY.'</option>'.CR;
 		$options=range(1,31);
@@ -984,8 +984,8 @@ class Form {
 		//Month
 		$month=date('m',strtotime($field['value']));
 		$input.='<select id="frm_'.$this->id.'_'.$id.'month" name="'.$field['name'].'month"';
-		$input.= is_null($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
-		$input.= is_null($field['title']) ? '' : ' title="'.$field['title'].' '.LANG_MONTH.'"';
+		$input.= empty($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
+		$input.= empty($field['title']) ? '' : ' title="'.$field['title'].' '.LANG_MONTH.'"';
 		$input.='>'.CR;
 		$input.='<option value="">'.LANG_MONTH.'</option>'.CR;
 		$options=range(1,12);
@@ -998,8 +998,8 @@ class Form {
 		//Year
 		$year=date('Y',strtotime($field['value']));
 		$input.='<select id="frm_'.$this->id.'_'.$id.'year" name="'.$field['name'].'year"';
-		$input.= is_null($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
-		$input.= is_null($field['title']) ? '' : ' title="'.$field['title'].' '.LANG_YEAR.'"';
+		$input.= empty($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
+		$input.= empty($field['title']) ? '' : ' title="'.$field['title'].' '.LANG_YEAR.'"';
 		$input.='>'.CR;
 		$input.='<option value="">'.LANG_YEAR.'</option>'.CR;
 		$options=range(date('Y')-1,date('Y')+4);
@@ -1036,9 +1036,9 @@ class Form {
 		$html='<input type="reset" name="_reset'.$this->id.'"';
 		$html.=' value="'.$field['value'].'"';
 		$html.=' id="frm_'.$this->id.'_reset"';
-		$html.= is_null($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
-		$html.= is_null($field['title']) ? '' : ' title="'.$field['title'].'"';
-		$html.= is_null($field['inputother']) ? '' : ' '.$field['inputother'];
+		$html.= empty($field['inputclass']) ? '' : ' class="'.$field['inputclass'].'"';
+		$html.= empty($field['title']) ? '' : ' title="'.$field['title'].'"';
+		$html.= empty($field['inputother']) ? '' : ' '.$field['inputother'];
 		$html.=' />';
 
 		return $this->_displayElement('',$html,'left',$field);
@@ -1062,8 +1062,8 @@ class Form {
 				break;
 		}
 		$class = $field['type'];
-		$class .= is_null($field['containerclass']) ? '' : ' '.$field['containerclass'];
-		$class .= is_null($field['validation']) ? '' : ' '.$field['validation'];
+		$class .= empty($field['containerclass']) ? '' : ' '.$field['containerclass'];
+		$class .= empty($field['validation']) ? '' : ' '.$field['validation'];
 		return '<div class="'.$class.'">'.$html.'</div>'.CR;
 	}
 }
