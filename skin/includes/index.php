@@ -10,7 +10,7 @@ $file = isset($_GET['uri']) ? $_GET['uri'] : null;
 if (!is_null($file) && is_file($file) ) {
 	$fileBits = pathinfo($file);
 	// GZip compress and cache it for 10 days
-	$expiresOffset = 3600 * 24 * 1000;		// 1000 days util client cache expires
+	$expiresOffset = 3600 * 24 * 10;		// 10 days util client cache expires
 	ob_start ("ob_gzhandler");
 
 	if ($fileBits['extension'] == 'js') {
@@ -18,11 +18,11 @@ if (!is_null($file) && is_file($file) ) {
 	}else{
 		header("Content-type: text/css; charset: UTF-8");
 	}
-	header("Cache-Control: private");
+	header("Cache-Control: public");
 	header("Expires: " . gmdate("D, d M Y H:i:s", time() + $expiresOffset) . " GMT");
 	readfile($file);
 	ob_end_flush();
 }else{
-	header('HTTP/1.0 404 Not Found');
+	header('HTTP/1.1 404 Not Found', 404);
 }
 ?>
