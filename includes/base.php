@@ -8,7 +8,7 @@
  **/
 
 ob_start('ob_gzhandler');
-define(DOCROOT,dirname(__FILE__).'/..');
+define('DOCROOT', dirname(__FILE__).'/..');
 define('TAB',chr(9));
 define('CR',chr(10));
 define('CRLF',chr(10).chr(13));
@@ -23,8 +23,10 @@ include(DOCROOT.'/config.php');
 include(DOCROOT.'/includes/Request.class.php');
 include(DOCROOT.'/includes/Session.class.php');
 include(DOCROOT.'/includes/Form.class.php');
-
-$user = Session::get('user');
+if (false === defined('NOSESSION'))
+{
+    $user = Session::get('user');
+}
 $request = Request::getInstance();
 set_exception_handler('exceptionHandler');
 set_error_handler('errorHandler');
@@ -267,17 +269,18 @@ function getQueryResults($sql){
 	$dbConn = getDBConnection();
 	$query = $dbConn->query($sql);
 	$err = $dbConn->errorInfo();
-	if ( 3==sizeof($err) )
+	if ( 3==sizeof($err) && '00000' != $err[0] )
 	{
 		throw new Exception($err[2], $err[1]);
 	}
+	$result = true;
 	try
 	{
 	 $result = $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 	catch (PDOException $e)
 	{
-	  return true;
+	  return;
   }
 	return $result;
 }

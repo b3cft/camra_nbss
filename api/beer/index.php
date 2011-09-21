@@ -6,9 +6,12 @@
  * This file is $Revision: 341 $
  * $HeadURL: https://svn.sf.net/svnroot/camranbss/camra/nbss/version2/api/beer/index.php $
  **/
+define('NOSESSION', true);
 include('../../includes/base.php');
-
+$expiresOffset = 3600 * 24 * 10;
 header('Content-type: text/plain');
+header('Cache-Control: public');
+header("Expires: " . gmdate("D, d M Y H:i:s", time() + $expiresOffset) . " GMT");
 $query = $_GET['query'];
 if (stripos($query, ','))
 {
