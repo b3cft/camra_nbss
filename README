@@ -9,4 +9,30 @@ Auto validiation after signup is configurable.
 
 Full reporting on branch pubs for administrative users.
 
+demo site at http://devnbss.camranorthherts.org.uk/
+
+
+Quick setup
+-----------
+
+1) Unpack into folder of your choice.
+
+2) Create a database (MySQL tested, *should* work with others) and secure if required.
+
+3) Import /install/*.sql into new database.
+
+4) Copy /config.example.php to /config.php
+
+5) Edit config.php and enter DB settings from 2).
+
+6) Login using username/password 11111/11111
+
+7) Goto Admin section and Manage Users, reset password etc.
+
+8) Logout and log back in to check all is well.
+
+9) Remove/rename the /install folder.
+
+10) Start adding your users, towns and pubs.
+
 
