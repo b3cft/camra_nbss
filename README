@@ -14,10 +14,11 @@ demo site at http://devnbss.camranorthherts.org.uk/
 
 Quick setup
 -----------
+0) Click the download link in github https://github.com/b3cft/camra_nbss/archives/master
 
 1) Unpack into folder of your choice.
 
-2) Create a database (MySQL tested, *should* work with others) and secure if required.
+2) Create a database (MySQL tested, *should* work with others) and secure.
 
 3) Import /install/*.sql into new database.
 
@@ -35,4 +36,17 @@ Quick setup
 
 10) Start adding your users, towns and pubs.
 
+Upgrading
+---------
 
+0) Click the download link in github https://github.com/b3cft/camra_nbss/archives/master
+
+1) Unpack into folder of your choice.
+
+2) Backup existing database and web folder.
+
+3) Apply at sql files from /install/ that have been added since your last version.
+
+4) Copy unpacked from 1) to your web folder (config should not be overwritten)
+
+5) Login and check everything works.
