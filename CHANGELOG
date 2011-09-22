@@ -4,6 +4,16 @@ Key:
 * bug fix
 - tidying up
 
+0.4.0-beta 
+----------
+- Moved over to github properly. Yay!
+* Issue: #1 Fixed cache control for /skin/includes in /enter/.
+* Issue: #2 Added text search indexes for pubs and beers.
+* Issue: #2 Fixed cache control headers on /api/.
+* Issue: #3 Fixed spurious error log messages.
+- Renamed sql install files so they install in order.
+* Issue: #4 Updated README.
+
 
 0.3.2-beta SVN[356]
 -------------------
