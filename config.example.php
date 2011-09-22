@@ -21,7 +21,7 @@ $config->set('web',			'branchName',		'North Hertfordshire TEST');
 $config->set('web',			'live',				false);
 
 /* Custom footer text can be changed should you desire it */
-$config->set('web',			'customFooter', 	'<a href="http://sourceforge.net/projects/camranbss/" title="Visit our SourceForge Project Page"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=189731&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>');
+$config->set('web',			'customFooter', 	'<a href="http://github.com/b3cft/camra_nbss/" title="Visit our GitHub Page"><img src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov6-hover.svg" border="0" alt="GitHub Logo" /></a>');
 
 /* email address to send feedback to, if blank, it disables feedback */
 $config->set('web',			'feedbackEmail', 	'');
@@ -76,4 +76,3 @@ $config->set('database', 	'connectString', 	'mysql:host=localhost;dbname=camraNB
 $config->set('database', 	'username',			'nbssDBuser');
 $config->set('database', 	'password',			'nbssDBpassword');
 $config->set('database', 	'tablePrefix',		'nbss_');
-?>
