@@ -1,0 +1,10 @@
+RewriteEngine  Off
+
+RewriteBase /
+
+RewriteRule ^(robots.txt|favicon.ico)$ skin/include/$1 [L]
+RewriteRule ^skin/.*$ - [L]
+
+RewriteCond %{REQUEST_URI} !/down/
+RewriteRule .* http://%{HTTP_HOST}/down/ [R=302,L]
+

@@ -165,7 +165,7 @@ function checkLoggedIn()
 {
 	global $user, $request, $config;
 	/* Check for logged in user */
-	if ( is_null($user) && !in_array($request->pathPeek(), array('login', 'signup', 'api')) )
+	if ( is_null($user) && !in_array($request->pathPeek(), array('login', 'signup', 'api', 'down')) )
 	{
 		header('Location: '.$config->get('web','root').'/login/');
 		exit;
@@ -180,7 +180,7 @@ function checkPermissions()
 {
 	global $request, $config, $access, $user;
 	/* check for permissions to view */
-	if ( !in_array($request->pathPeek(), array('login', 'denied', 'signup', 'api')) && (!isset($access) || !is_array($access)))
+	if ( !in_array($request->pathPeek(), array('login', 'denied', 'signup', 'api', 'down')) && (!isset($access) || !is_array($access)))
 	{
 		throw new Exception('Shoot the coder!, access permissions not defined', E_RECOVERABLE_ERROR);
 	}
