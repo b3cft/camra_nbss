@@ -20,6 +20,9 @@ $config->set('web',			'branchName',		'North Hertfordshire TEST');
 /* Set to true if a production/live site, false if a development/testing site */
 $config->set('web',			'live',				false);
 
+/* Set to your google analytics UA code if you want. e.g 'UA-1234567-1' */
+$config->set('web',			'googleAnalytics', 	false);
+
 /* Custom footer text can be changed should you desire it */
 $config->set('web',			'customFooter', 	'<a href="http://github.com/b3cft/camra_nbss/" title="Visit our GitHub Page"><img src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov6-hover.svg" border="0" alt="GitHub Logo" /></a>');
 
