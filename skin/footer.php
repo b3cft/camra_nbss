@@ -33,11 +33,13 @@
 	print('<div id="versionFooter">'.VERSION.'</div>');
 	?>
 </div><!--#body-->
-<script src="<?php echo $config->get('web', 'root')?>/skin/includes/?uri=yui/yahoo/yahoo.js" type="text/javascript"></script>
-<script src="<?php echo $config->get('web', 'root')?>/skin/includes/?uri=yui/event/event.js" type="text/javascript"></script>
-<script src="<?php echo $config->get('web', 'root')?>/skin/includes/?uri=yui/dom/dom.js" type="text/javascript"></script>
-<script src="<?php echo $config->get('web', 'root')?>/skin/includes/?uri=yui/calendar/calendar.js" type="text/javascript"></script>
-<script src="<?php echo $config->get('web', 'root')?>/skin/includes/?uri=std.js" type="text/javascript"></script>
+<?php
+printJSInclude('yui/yahoo/yahoo.js');
+printJSInclude('yui/event/event.js');
+printJSInclude('yui/dom/dom.js');
+printJSInclude('yui/calendar/calendar.js');
+printJSInclude('std.js');
+?>
 <?php if (false !== $config->get('web', 'googleAnalytics')) {?>
 <script type="text/javascript">
   var _gaq = _gaq || [];_gaq.push(['_setAccount', '<?php echo $config->get('web', 'googleAnalytics')?>']);_gaq.push(['_setDomainName', 'none']);_gaq.push(['_setAllowLinker', true]);_gaq.push(['_trackPageview']);

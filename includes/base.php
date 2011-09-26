@@ -191,6 +191,22 @@ function checkPermissions()
 }
 
 /**
+ * Helper function to print out the javascript include function, with version
+ *
+ * @param string $path path to file to include
+ *
+ * @return void
+ */
+function printJSInclude($path)
+{
+    $webroot = Config::getInstance()->get('web', 'root');
+    $version = VER;
+    echo <<<END
+<script src="$webroot/skin/includes/?version=$version&uri=$path" type="text/javascript"></script>
+END;
+}
+
+/**
  * Hash a string
  *
  * @param string $string

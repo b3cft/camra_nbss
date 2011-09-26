@@ -7,9 +7,9 @@
 ?>
 </div><!--#body-->
 </body>
-<script src="<?php echo $config->get('web', 'root')?>/skin/includes/?uri=yui/yahoo/yahoo.js" type="text/javascript"></script>
-<script src="<?php echo $config->get('web', 'root')?>/skin/includes/?uri=yui/dom/dom.js" type="text/javascript"></script>
-<script src="<?php echo $config->get('web', 'root')?>/skin/includes/?uri=std.js" type="text/javascript"></script>
+printJSInclude('yui/yahoo/yahoo.js');
+printJSInclude('yui/dom/dom.js');
+printJSInclude('std.js');
 <?php if (false !== $config->get('web', 'googleAnalytics')) {?>
 <script type="text/javascript">
   var _gaq = _gaq || [];_gaq.push(['_setAccount', '<?php echo $config->get('web', 'googleAnalytics')?>']);_gaq.push(['_setDomainName', 'none']);_gaq.push(['_setAllowLinker', true]);_gaq.push(['_trackPageview']);
