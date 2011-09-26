@@ -9,8 +9,10 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta name="MSSmartTagsPreventParsing" content="TRUE" />
 	<link rel="Shortcut Icon" type="image/x-icon" href="<?php echo $config->get('web', 'root')?>/skin/images/favicon.ico" />
-	<link rel="stylesheet" href="<?php echo $config->get('web', 'root')?>/skin/includes/?uri=style.css" media="screen,projection" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $config->get('web', 'root')?>/skin/includes/?uri=yui/calendar/assets/calendar.css" type="text/css" />
+	<?php
+	printCSSInclude('style.css');
+	printCSSInclude('yui/calendar/assets/calendar.css');
+	?>
 </head>
 
 <body>

@@ -7,9 +7,11 @@
 ?>
 </div><!--#body-->
 </body>
+<?php
 printJSInclude('yui/yahoo/yahoo.js');
 printJSInclude('yui/dom/dom.js');
 printJSInclude('std.js');
+?>
 <?php if (false !== $config->get('web', 'googleAnalytics')) {?>
 <script type="text/javascript">
   var _gaq = _gaq || [];_gaq.push(['_setAccount', '<?php echo $config->get('web', 'googleAnalytics')?>']);_gaq.push(['_setDomainName', 'none']);_gaq.push(['_setAllowLinker', true]);_gaq.push(['_trackPageview']);

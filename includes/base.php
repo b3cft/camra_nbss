@@ -207,6 +207,22 @@ END;
 }
 
 /**
+ * Helper function to print out the css include function, with version
+ *
+ * @param string $path path to file to include
+ *
+ * @return void
+ */
+function printCSSInclude($path)
+{
+    $webroot = Config::getInstance()->get('web', 'root');
+    $version = VER;
+    echo <<<END
+<link rel="stylesheet" href="$webroot/skin/includes/?version=$version&uri=$path" media="screen,projection" type="text/css" />
+END;
+}
+
+/**
  * Hash a string
  *
  * @param string $string

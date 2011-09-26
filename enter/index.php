@@ -269,10 +269,10 @@ if ( $request->get('post', '_submitjsform') )
 	</table>
 </form>
 <!-- Submission Form ends -->
-<script type="text/javascript" src="/skin/includes/?uri=yui/yahoo-dom-event/yahoo-dom-event.js"></script>
-<script type="text/javascript" src="/skin/includes/?uri=yui/connection/connection-min.js"></script>
-<script type="text/javascript" src="/skin/includes/?uri=yui/animation/animation-min.js"></script>
-<script type="text/javascript" src="/skin/includes/?uri=yui/autocomplete/autocomplete-min.js"></script>
 <?php
+printJSInclude('yui/yahoo-dom-event/yahoo-dom-event.js');
+printJSInclude('yui/connection/connection-min.js');
+printJSInclude('yui/animation/animation-min.js');
+printJSInclude('yui/autocomplete/autocomplete-min.js');
 include(DOCROOT.'/skin/footer.php')
 ?>
