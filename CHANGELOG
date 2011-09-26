@@ -4,6 +4,10 @@ Key:
 * bug fix
 - tidying up
 
+0.4.1-beta
+----------
+* Issue: #13 Fixed JS calendar issues due to conflicting ids.
+
 0.4.0-beta 
 ----------
 - Moved over to github properly. Yay!

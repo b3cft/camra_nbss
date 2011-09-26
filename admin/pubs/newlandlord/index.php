@@ -116,4 +116,3 @@ include(DOCROOT.'/skin/header.php');
 	print $form->display().$form->submiterrormsg;
 
 include(DOCROOT.'/skin/footer.php');
-?>

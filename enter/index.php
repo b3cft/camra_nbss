@@ -40,7 +40,14 @@ include(DOCROOT.'/skin/header.php');
 	$form->validationerrormsg = 'Please complete the following fields correctly.<br>Click on name to jump to error.';
 	if ($form->submitted)
 	{
-		$currDate = strtotime($request->get('post', 'date'));
+	    if ($request->get('post', 'date_nojs'))
+	    {
+	        $currDate = strtotime($request->get('post', 'date_nojs'));
+	    }
+	    else
+	    {
+		    $currDate = strtotime($request->get('post', 'date'));
+	    }
 		Session::set('date', $currDate);
 		if ( 0 == $form->submiterrors && 'enterReviews'==$form->submittedaction)
 		{
@@ -55,10 +62,9 @@ include(DOCROOT.'/skin/header.php');
 	}
 
 	$form->addFieldsetOpen('Review by '.$user['firstname'].' '.$user['lastname']);
-	$form->addField('date', 'text', date('d-M-Y', $currDate));
+	$form->addField('date_nojs', 'text', date('d-M-Y', $currDate));
 		$form->addLabel('Date of Visit');
 		$form->addFieldValidation('required');
-	$form->addContent('<img id="cal1Open" src="'.$config->get('web','root').'/skin/images/cal.gif" alt="open calendar" /><div id="cal1Container"></div>');
 
 	if ( is_null($town_id) || '' == $town_id )
 	{

@@ -10,7 +10,7 @@ function init() {
 	YAHOO.calendar.cal1.cfg.setProperty("MDY_YEAR_POSITION", 3);
 	YAHOO.calendar.cal1.render();
 	YAHOO.util.Event.addListener("cal1Open", "click", YAHOO.calendar.cal1.show, YAHOO.calendar.cal1, true);
-	YAHOO.util.Event.addListener("cal2Open", "click", YAHOO.calendar.cal2.show, YAHOO.calendar.cal2, true);
+	//YAHOO.util.Event.addListener("cal2Open", "click", YAHOO.calendar.cal2.show, YAHOO.calendar.cal2, true);
 }
 function handleSelect(type,args,obj) {
 	var dates = args[0];
