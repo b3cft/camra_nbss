@@ -7,13 +7,14 @@
  * $HeadURL: https://svn.sf.net/svnroot/camranbss/camra/nbss/version2/skin/includes/index.php $
  **/
 $file = isset($_GET['uri']) ? $_GET['uri'] : null;
-if (!is_null($file) && is_file($file) ) {
+$file = ltrim($file, './ ');
+if (false === empty($file) && is_file($file) ) {
 	$fileBits = pathinfo($file);
 	// GZip compress and cache it for 10 days
 	$expiresOffset = 3600 * 24 * 10;		// 10 days util client cache expires
 	ob_start ("ob_gzhandler");
 
-	if ($fileBits['extension'] == 'js') {
+	if ('js' === $fileBits['extension']) {
 		header("Content-type: text/javascript; charset: UTF-8");
 	}else{
 		header("Content-type: text/css; charset: UTF-8");
